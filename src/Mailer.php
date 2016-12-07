@@ -33,7 +33,7 @@ class Mailer extends BaseMailer
 	 * [$messageClass description]
 	 * @var string message default class name.
 	 */
-	public $messageClass = 'ninjacto\yii2mailgunmailer\Message';
+	public $messageClass = 'ninjacto\yii2mailgun\Message';
 
 	public $domain;
 	public $key;

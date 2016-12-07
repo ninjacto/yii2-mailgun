@@ -1,7 +1,7 @@
 <?php
 namespace yiiunit\extensions\swiftmailer;
 use Yii;
-use yii\swiftmailer\Mailer;
+use ninjacto\yii2mailgun\Mailer;
 Yii::setAlias('@yii/swiftmailer', __DIR__ . '/../../../../extensions/swiftmailer');
 class MailerTest extends TestCase
 {
