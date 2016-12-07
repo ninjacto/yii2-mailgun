@@ -1,6 +1,6 @@
 <?php
 
-namespace farmani\yii2mailgunmailer;
+namespace ninjacto\yii2mailgunmailer;
 
 use Yii;
 use yii\base\InvalidConfigException;

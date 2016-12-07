@@ -24,7 +24,7 @@ $ composer require ninjacto/yii2-mailgun
 'components' => [
 		...
 		'mailer' => [
-				'class' => 'farmani\yii2mailgunmailer\Mailer',
+				'class' => 'ninjacto\yii2mailgunmailer\Mailer',
 				'domain' => 'example.com',
 				'key' => 'key-somekey',
 				'tags' => ['yii'],
