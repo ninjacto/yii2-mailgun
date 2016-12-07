@@ -1,10 +1,11 @@
 <?php
-namespace yiiunit\extensions\swiftmailer;
+namespace ninjacto\yii2mailgun\test;
+
 use Yii;
 use yii\helpers\FileHelper;
 use ninjacto\yii2mailgun\Mailer;
 use ninjacto\yii2mailgun\Message;
-Yii::setAlias('@yii/swiftmailer', __DIR__ . '/../../../../extensions/swiftmailer');
+
 /**
  * @group vendor
  * @group mail
@@ -16,6 +17,7 @@ class MessageTest extends TestCase
      * @var string test email address, which will be used as receiver for the messages.
      */
     protected $testEmailReceiver = 'someuser@somedomain.com';
+
     public function setUp()
     {
         $this->mockApplication([
@@ -28,6 +30,7 @@ class MessageTest extends TestCase
             FileHelper::createDirectory($filePath);
         }
     }
+
     public function tearDown()
     {
         $filePath = $this->getTestFilePath();
@@ -35,13 +38,15 @@ class MessageTest extends TestCase
             FileHelper::removeDirectory($filePath);
         }
     }
+
     /**
      * @return string test file path.
      */
     protected function getTestFilePath()
     {
-        return Yii::getAlias('@yiiunit/extensions/swiftmailer/runtime') . DIRECTORY_SEPARATOR . basename(get_class($this)) . '_' . getmypid();
+        return Yii::getAlias('@ninjacto/yii2mailgun/test/runtime') . DIRECTORY_SEPARATOR . basename(get_class($this)) . '_' . getmypid();
     }
+
     /**
      * @return Mailer test email component instance.
      */
@@ -50,8 +55,10 @@ class MessageTest extends TestCase
         $component = new Mailer([
             'useFileTransport' => true,
         ]);
+
         return $component;
     }
+
     /**
      * @return Message test message instance.
      */
@@ -59,10 +66,11 @@ class MessageTest extends TestCase
     {
         return Yii::$app->get('mailer')->compose();
     }
+
     /**
      * Creates image file with given text.
      * @param  string $fileName file name.
-     * @param  string $text     text to be applied on image.
+     * @param  string $text text to be applied on image.
      * @return string image file full name.
      */
     protected function createImageFile($fileName = 'test.jpg', $text = 'Test Image')
@@ -76,16 +84,18 @@ class MessageTest extends TestCase
         imagestring($image, 1, 5, 5, $text, $textColor);
         imagejpeg($image, $fileFullName);
         imagedestroy($image);
+
         return $fileFullName;
     }
+
     /**
      * Finds the attachment object in the message.
-     * @param  Message                     $message message instance
+     * @param  Message $message message instance
      * @return null|\Swift_Mime_Attachment attachment instance.
      */
     protected function getAttachment(Message $message)
     {
-        $messageParts = $message->getSwiftMessage()->getChildren();
+        $messageParts = $message->getMessage()->getChildren();
         $attachment = null;
         foreach ($messageParts as $part) {
             if ($part instanceof \Swift_Mime_Attachment) {
@@ -93,8 +103,10 @@ class MessageTest extends TestCase
                 break;
             }
         }
+
         return $attachment;
     }
+
     /**
      * @param Message $message
      * @return array list of attached swift signers
@@ -107,17 +119,20 @@ class MessageTest extends TestCase
         $headerSignersReflection->setAccessible(true);
         $bodySignersReflection = $reflection->getProperty('bodySigners');
         $bodySignersReflection->setAccessible(true);
+
         return array_merge(
             $headerSignersReflection->getValue($swiftMessage),
             $bodySignersReflection->getValue($swiftMessage)
         );
     }
+
     // Tests :
-    public function testGetSwiftMessage()
+    public function testGetMailgunMessage()
     {
         $message = new Message();
-        $this->assertTrue(is_object($message->getSwiftMessage()), 'Unable to get Swift message!');
+        $this->assertTrue(is_object($message->getMessage()), 'Unable to get Swift message!');
     }
+
     /**
      * @depends testGetSwiftMessage
      */
@@ -146,6 +161,7 @@ class MessageTest extends TestCase
         $message->setBcc($bcc);
         $this->assertContains($bcc, array_keys($message->getBcc()), 'Unable to set bcc!');
     }
+
     /**
      * @depends testGetSwiftMessage
      */
@@ -181,14 +197,16 @@ class MessageTest extends TestCase
         $this->assertContains('Bcc: ' . $bcc, $messageString, 'Incorrect "Bcc" header!');
         $this->assertContains("Return-Path: <{$returnPath}>", $messageString, 'Incorrect "Return-Path" header!');
         $this->assertContains("X-Priority: 2 (High)", $messageString, 'Incorrect "Priority" header!');
-        $this->assertContains('Disposition-Notification-To: ' . $readReceiptTo, $messageString, 'Incorrect "Disposition-Notification-To" header!');
+        $this->assertContains('Disposition-Notification-To: ' . $readReceiptTo, $messageString,
+            'Incorrect "Disposition-Notification-To" header!');
     }
+
     public function testSetupSignature()
     {
         $message = new Message();
         $message->addSignature([
             'type' => 'dkim',
-            'key' => 'private key',
+            'key'  => 'private key',
         ]);
         $signers = $this->getSwiftSigners($message);
         $this->assertTrue($signers[0] instanceof \Swift_Signers_DKIMSigner);
@@ -204,11 +222,12 @@ class MessageTest extends TestCase
         $this->assertSame($signer, $signers[2]);
         $message->setSignature([
             'type' => 'dkim',
-            'key' => 'override',
+            'key'  => 'override',
         ]);
         $signers = $this->getSwiftSigners($message);
         $this->assertCount(1, $signers);
     }
+
     /**
      * @depends testGetSwiftMessage
      */
@@ -221,6 +240,7 @@ class MessageTest extends TestCase
         $message->setTextBody('Yii Swift Test body');
         $this->assertTrue($message->send());
     }
+
     /**
      * @depends testSend
      */
@@ -261,10 +281,11 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $message->setTextBody('Signed message body');
         $message->setSignature([
             'type' => 'dkim',
-            'key' => $privateKey,
+            'key'  => $privateKey,
         ]);
         $this->assertTrue($message->send());
     }
+
     /**
      * @depends testSend
      */
@@ -282,6 +303,7 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $this->assertTrue(is_object($attachment), 'No attachment found!');
         $this->assertContains($attachment->getFilename(), $fileName, 'Invalid file name!');
     }
+
     /**
      * @depends testSend
      */
@@ -300,6 +322,7 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $this->assertTrue(is_object($attachment), 'No attachment found!');
         $this->assertEquals($fileName, $attachment->getFilename(), 'Invalid file name!');
     }
+
     /**
      * @depends testSend
      */
@@ -311,12 +334,13 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $message->setTo($this->testEmailReceiver);
         $message->setFrom('someuser@somedomain.com');
         $message->setSubject('Yii Swift Embed File Test');
-        $message->setHtmlBody('Embed image: <img src="' . $cid. '" alt="pic">');
+        $message->setHtmlBody('Embed image: <img src="' . $cid . '" alt="pic">');
         $this->assertTrue($message->send());
         $attachment = $this->getAttachment($message);
         $this->assertTrue(is_object($attachment), 'No attachment found!');
         $this->assertContains($attachment->getFilename(), $fileName, 'Invalid file name!');
     }
+
     /**
      * @depends testSend
      */
@@ -331,13 +355,14 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $message->setTo($this->testEmailReceiver);
         $message->setFrom('someuser@somedomain.com');
         $message->setSubject('Yii Swift Embed File Test');
-        $message->setHtmlBody('Embed image: <img src="' . $cid. '" alt="pic">');
+        $message->setHtmlBody('Embed image: <img src="' . $cid . '" alt="pic">');
         $this->assertTrue($message->send());
         $attachment = $this->getAttachment($message);
         $this->assertTrue(is_object($attachment), 'No attachment found!');
         $this->assertEquals($fileName, $attachment->getFilename(), 'Invalid file name!');
         $this->assertEquals($contentType, $attachment->getContentType(), 'Invalid content type!');
     }
+
     /**
      * @depends testSend
      */
@@ -367,6 +392,7 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $this->assertTrue($textPresent, 'No text!');
         $this->assertTrue($htmlPresent, 'No HTML!');
     }
+
     /**
      * @depends testGetSwiftMessage
      */
@@ -382,6 +408,7 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $unserializedMessaage = unserialize($serializedMessage);
         $this->assertEquals($message, $unserializedMessaage, 'Unable to unserialize message!');
     }
+
     /**
      * @depends testSendAlternativeBody
      */
@@ -398,6 +425,7 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $content = $message->toString();
         $this->assertEquals(2, substr_count($content, $charset), 'Wrong charset for alternative body override.');
     }
+
     /**
      * @depends testGetSwiftMessage
      */
@@ -427,7 +455,7 @@ U41eAdnQ3dDGzUNedIJkSh6Z0A4VMZIEOag9hPNYqQXZBQgfobvPKw==
         $this->assertEquals(['value1', 'value2'], $message->getHeader('Multiple'));
         $message = $this->createTestMessage()
             ->setHeaders([
-                'Some' => 'foo',
+                'Some'     => 'foo',
                 'Multiple' => ['value1', 'value2'],
             ]);
         $this->assertEquals(['foo'], $message->getHeader('Some'));

@@ -1,5 +1,5 @@
 <?php
-namespace yiiunit\extensions\swiftmailer;
+namespace ninjacto\yii2mailgun\test;
 use yii\helpers\ArrayHelper;
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
