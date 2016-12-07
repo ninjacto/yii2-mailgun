@@ -1,6 +1,6 @@
 <?php
 
-namespace ninjacto\yii2mailgunmailer;
+namespace ninjacto\yii2mailgun;
 
 use Yii;
 use yii\base\InvalidConfigException;
@@ -16,7 +16,7 @@ use Mailgun\Mailgun;
  * 'components' => [
  *     ...
  *     'mailer' => [
- *         'class' => 'farmani\yii2mailgunmailer\Mailer',
+ *         'class' => 'ninjacto\yii2mailgun\Mailer',
  *         'domain' => 'example.com',
  *         'key' => 'key-somekey',
  *         'tags' => ['yii'],
@@ -33,7 +33,7 @@ class Mailer extends BaseMailer
 	 * [$messageClass description]
 	 * @var string message default class name.
 	 */
-	public $messageClass = 'farmani\yii2mailgunmailer\Message';
+	public $messageClass = 'ninjacto\yii2mailgunmailer\Message';
 
 	public $domain;
 	public $key;

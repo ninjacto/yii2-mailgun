@@ -1,9 +1,9 @@
 <?php
 
-namespace ninjacto\yii2mailgunmailer;
+namespace ninjacto\yii2mailgun;
 
-use yii\mail\BaseMessage;
-use Mailgun\Messages\MessageBuilder;
+use \yii\mail\BaseMessage;
+use \Mailgun\Messages\MessageBuilder;
 
 require_once __DIR__.'/../../mailgun/mailgun-php/src/Mailgun/Constants/Api.php';
 require_once __DIR__.'/../../mailgun/mailgun-php/src/Mailgun/Constants/ExceptionMessages.php';
@@ -12,7 +12,7 @@ require_once __DIR__.'/../../mailgun/mailgun-php/src/Mailgun/Constants/Exception
  * Message implements a message class based on Mailgun.
  *
  *
- * @method \farmani\yii2mailgunmailer\Mailer getMailer() returns mailer instance.
+ * @method \ninjacto\yii2mailgun\Mailer getMailer() returns mailer instance.
  *
  *
  * @author Ramin Farmani <ramin.farmani@gmail.com>
