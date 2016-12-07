@@ -5,15 +5,11 @@ namespace ninjacto\yii2mailgun;
 use \yii\mail\BaseMessage;
 use \Mailgun\Messages\MessageBuilder;
 
-require_once __DIR__.'/../../mailgun/mailgun-php/src/Mailgun/Constants/Api.php';
-require_once __DIR__.'/../../mailgun/mailgun-php/src/Mailgun/Constants/ExceptionMessages.php';
 
 /**
  * Message implements a message class based on Mailgun.
  *
- *
- * @method \ninjacto\yii2mailgun\Mailer getMailer() returns mailer instance.
- *
+ * @method Mailer getMailer() returns mailer instance.
  *
  * @author Ramin Farmani <ramin.farmani@gmail.com>
  */
@@ -36,7 +32,7 @@ class Message extends BaseMessage
 	private $_messageBuilder;
 
 	/**
-	 * @return \Swift_Message Swift message instance.
+	 * @return \Mailgun\Messages\MessageBuilder Mailgun message instance.
 	 */
 	public function getMessageBuilder()
 	{
@@ -243,10 +239,11 @@ class Message extends BaseMessage
 		return $this;
 	}
 
-	/**
-	 * Set click tracking
-	 * @param Boolean|String $enabled true, false, "html"
-	 */
+    /**
+     * Set click tracking
+     * @param Boolean|String $enabled true, false, "html"
+     * @return $this
+     */
 	public function setClickTracking($enabled)
 	{
 		$this->getMessageBuilder()->setClickTracking($enabled);
@@ -254,7 +251,7 @@ class Message extends BaseMessage
 	}
 
 	/**
-	 * @return Array message object
+	 * @return array message object
 	 */
 	public function getMessage()
 	{
@@ -262,7 +259,7 @@ class Message extends BaseMessage
 	}
 
 	/**
-	 * @return Array files list
+	 * @return array files list
 	 */
 	public function getFiles()
 	{
@@ -271,7 +268,7 @@ class Message extends BaseMessage
 
 	/**
 	 * Creates the Mailgun email message instance.
-	 * @return \MessageBldr email message instance.
+	 * @return \Mailgun\Messages\MessageBuilder email message instance.
 	 */
 	protected function createMessageBuilder()
 	{
