@@ -38,7 +38,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "ninjacto\\yii2-mailgun\\": "tests"
+            "ninjacto\\yii2-mailgun\\": "src"
         }
     },
     "minimum-stability": "stable",

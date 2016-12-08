@@ -242,7 +242,7 @@ class Message extends BaseMessage implements MessageInterface
 
     /**
      * Returns the message sender.
-     * @return string the sender
+     * @return array the sender
      */
     public function getFrom()
     {
@@ -264,7 +264,7 @@ class Message extends BaseMessage implements MessageInterface
 
     /**
      * Returns the reply-to address of this message.
-     * @return string the reply-to address of this message.
+     * @return array the reply-to address of this message.
      */
     public function getReplyTo()
     {

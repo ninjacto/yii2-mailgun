@@ -1,7 +1,7 @@
 <?php
 namespace ninjacto\yii2mailgun\test;
 
-use ninjacto\yii2mailgun\Mailer;
+use \ninjacto\yii2mailgun\Mailer;
 
 class MailerTest extends TestCase
 {
@@ -9,7 +9,7 @@ class MailerTest extends TestCase
     {
         $this->mockApplication([
             'components' => [
-                'email' => $this->createTestEmailComponent()
+                'mailer' => $this->createTestEmailComponent()
             ]
         ]);
     }
@@ -18,13 +18,14 @@ class MailerTest extends TestCase
      */
     protected function createTestEmailComponent()
     {
-        $component = new Mailer();
+        $component = new \ninjacto\yii2mailgun\Mailer();
         return $component;
     }
+
     // Tests :
     public function testGetMailgunMailer()
     {
-        $mailer = new Mailer();
+        $mailer = \Yii::$app->mailer;
         $this->assertTrue(is_object($mailer->getMailgunMailer()), 'Unable to get mail mailer instance!');
     }
 }
