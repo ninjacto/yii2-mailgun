@@ -1,7 +1,7 @@
 <?php
 namespace ninjacto\yii2mailgun\tests;
 
-use \ninjacto\yii2mailgun\Mailer;
+use ninjacto\yii2mailgun\Mailer;
 
 class MailerTest extends TestCase
 {

@@ -382,7 +382,13 @@ class Message extends BaseMessage implements MessageInterface
      */
     public function toString()
     {
-        return implode("\r\n", $this->getMailgunMessage()->getMessage());
+        $message = $this->getMailgunMessage()->getMessage();
+
+        foreach ($message as $title => $content) {
+            if(is_array($content)) $content=implode(', ',$content);
+            $output = ucfirst($title.': ').$content."\r\n";
+        }
+        return $output;
     }
 
     /**

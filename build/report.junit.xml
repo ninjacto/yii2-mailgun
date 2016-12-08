@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Yii2-MailGun Mailer Test Suite" tests="2" assertions="0" failures="0" errors="2" time="0.004734">
-    <testsuite name="ninjacto\yii2mailgun\tests\MailerTest" file="/Users/Server/yii2-mailgun/tests/MailerTest.php" tests="1" assertions="0" failures="0" errors="1" time="0.002645">
-      <testcase name="testGetMailgunMailer" class="ninjacto\yii2mailgun\tests\MailerTest" file="/Users/Server/yii2-mailgun/tests/MailerTest.php" line="26" assertions="0" time="0.002645">
-        <error type="PHPUnit_Framework_ExceptionWrapper">ninjacto\yii2mailgun\tests\MailerTest::testGetMailgunMailer
-Error: Class 'ninjacto\yii2mailgun\Mailer' not found
-
-/Users/Server/yii2-mailgun/tests/MailerTest.php:21
-/Users/Server/yii2-mailgun/tests/MailerTest.php:12
-/Users/Server/yii2-mailgun/vendor/phpunit/phpunit/phpunit:52
-</error>
-      </testcase>
+  <testsuite name="Yii2-MailGun Mailer Test Suite" tests="8" assertions="16" failures="3" errors="0" time="0.063402">
+    <testsuite name="ninjacto\yii2mailgun\tests\MailerTest" file="/Users/Server/yii2-mailgun/tests/MailerTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.016716">
+      <testcase name="testGetMailgunMailer" class="ninjacto\yii2mailgun\tests\MailerTest" file="/Users/Server/yii2-mailgun/tests/MailerTest.php" line="26" assertions="1" time="0.016716"/>
     </testsuite>
-    <testsuite name="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" tests="1" assertions="0" failures="0" errors="1" time="0.002089">
-      <testcase name="testGetMailgunMessage" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="107" assertions="0" time="0.002089">
-        <error type="PHPUnit_Framework_ExceptionWrapper">ninjacto\yii2mailgun\tests\MessageTest::testGetMailgunMessage
-Error: Class 'ninjacto\yii2mailgun\Mailer' not found
+    <testsuite name="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" tests="7" assertions="15" failures="3" errors="0" time="0.046686">
+      <testcase name="testGetMailgunMessage" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="107" assertions="1" time="0.009631"/>
+      <testcase name="testSetGet" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="116" assertions="6" time="0.002338"/>
+      <testcase name="testSetupHeaderShortcuts" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="142" assertions="1" time="0.001481">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">ninjacto\yii2mailgun\tests\MessageTest::testSetupHeaderShortcuts
+Incorrect "Subject" header!
+Failed asserting that 'Bcc: bccuser@somedomain.com
+' contains "Subject: Test Subject".
 
-/Users/Server/yii2-mailgun/tests/MessageTest.php:55
-/Users/Server/yii2-mailgun/tests/MessageTest.php:25
+/Users/Server/yii2-mailgun/tests/MessageTest.php:160
 /Users/Server/yii2-mailgun/vendor/phpunit/phpunit/phpunit:52
-</error>
+</failure>
       </testcase>
+      <testcase name="testSend" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="171" assertions="1" time="0.006780"/>
+      <testcase name="testAttachFile" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="184" assertions="2" time="0.002740"/>
+      <testcase name="testSendAlternativeBody" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="203" assertions="2" time="0.003510">
+        <failure type="PHPUnit_Framework_ExpectationFailedException">ninjacto\yii2mailgun\tests\MessageTest::testSendAlternativeBody
+No text!
+Failed asserting that false is true.
+
+/Users/Server/yii2-mailgun/tests/MessageTest.php:217
+/Users/Server/yii2-mailgun/vendor/phpunit/phpunit/phpunit:52
+</failure>
+      </testcase>
+      <testcase name="testSerialize" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="224" assertions="2" time="0.020206"/>
     </testsuite>
   </testsuite>
 </testsuites>

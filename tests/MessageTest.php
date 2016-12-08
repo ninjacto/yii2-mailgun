@@ -124,7 +124,7 @@ class MessageTest extends TestCase
         $this->assertContains($from, array_keys($message->getFrom()), 'Unable to set from!');
         $replyTo = 'reply-to@somedomain.com';
         $message->setReplyTo($replyTo);
-        $this->assertContains($replyTo, array_keys($message->getReplyTo()), 'Unable to set replyTo!');
+        $this->assertContains($replyTo, $message->getReplyTo(), 'Unable to set replyTo!');
         $to = 'someuser@somedomain.com';
         $message->setTo($to);
         $this->assertContains($to, array_keys($message->getTo()), 'Unable to set to!');
@@ -193,6 +193,7 @@ class MessageTest extends TestCase
         $this->assertTrue($message->send());
         $attachment = $this->getAttachment($message);
         $this->assertTrue(is_array($attachment), 'No attachment found!');
+        if(isset($attachment['attachment']))
         $this->assertContains($attachment['attachment'], $fileName, 'Invalid file name!');
     }
 

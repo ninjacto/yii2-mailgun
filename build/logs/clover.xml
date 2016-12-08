@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1481183737">
-  <project timestamp="1481183737">
+<coverage generated="1481185298">
+  <project timestamp="1481185298">
     <package name="ninjacto\yii2mailgun">
       <file name="/Users/Server/yii2-mailgun/src/Mailer.php">
         <class name="Mailer" namespace="ninjacto\yii2mailgun">
