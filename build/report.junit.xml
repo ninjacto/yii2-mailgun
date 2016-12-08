@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Yii2-MailGun Mailer Test Suite" tests="2" assertions="0" failures="0" errors="2" time="0.004734">
+    <testsuite name="ninjacto\yii2mailgun\tests\MailerTest" file="/Users/Server/yii2-mailgun/tests/MailerTest.php" tests="1" assertions="0" failures="0" errors="1" time="0.002645">
+      <testcase name="testGetMailgunMailer" class="ninjacto\yii2mailgun\tests\MailerTest" file="/Users/Server/yii2-mailgun/tests/MailerTest.php" line="26" assertions="0" time="0.002645">
+        <error type="PHPUnit_Framework_ExceptionWrapper">ninjacto\yii2mailgun\tests\MailerTest::testGetMailgunMailer
+Error: Class 'ninjacto\yii2mailgun\Mailer' not found
+
+/Users/Server/yii2-mailgun/tests/MailerTest.php:21
+/Users/Server/yii2-mailgun/tests/MailerTest.php:12
+/Users/Server/yii2-mailgun/vendor/phpunit/phpunit/phpunit:52
+</error>
+      </testcase>
+    </testsuite>
+    <testsuite name="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" tests="1" assertions="0" failures="0" errors="1" time="0.002089">
+      <testcase name="testGetMailgunMessage" class="ninjacto\yii2mailgun\tests\MessageTest" file="/Users/Server/yii2-mailgun/tests/MessageTest.php" line="107" assertions="0" time="0.002089">
+        <error type="PHPUnit_Framework_ExceptionWrapper">ninjacto\yii2mailgun\tests\MessageTest::testGetMailgunMessage
+Error: Class 'ninjacto\yii2mailgun\Mailer' not found
+
+/Users/Server/yii2-mailgun/tests/MessageTest.php:55
+/Users/Server/yii2-mailgun/tests/MessageTest.php:25
+/Users/Server/yii2-mailgun/vendor/phpunit/phpunit/phpunit:52
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -1,5 +1,5 @@
 <?php
-namespace ninjacto\yii2mailgun\test;
+namespace ninjacto\yii2mailgun\tests;
 
 use Yii;
 use yii\helpers\FileHelper;

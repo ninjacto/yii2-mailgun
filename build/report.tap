@@ -1,0 +1,12 @@
+TAP version 13
+not ok 1 - Error: ninjacto\yii2mailgun\tests\MailerTest::testGetMailgunMailer
+not ok 2 - Error: ninjacto\yii2mailgun\tests\MessageTest::testGetMailgunMessage
+ok 2 - # SKIP This test depends on "ninjacto\yii2mailgun\tests\MessageTest::testGetMailgunMessage" to pass.
+ok 2 - # SKIP This test depends on "ninjacto\yii2mailgun\tests\MessageTest::testGetMailgunMessage" to pass.
+ok 2 - # SKIP This test depends on "ninjacto\yii2mailgun\tests\MessageTest::testGetMailgunMessage" to pass.
+ok 2 - # SKIP This test depends on "ninjacto\yii2mailgun\tests\MessageTest::testSend" to pass.
+ok 2 - # SKIP This test depends on "ninjacto\yii2mailgun\tests\MessageTest::testSend" to pass.
+ok 2 - # SKIP This test depends on "ninjacto\yii2mailgun\tests\MessageTest::testGetMailgunMessage" to pass.
+ok 2 - # SKIP This test depends on "ninjacto\yii2mailgun\tests\MessageTest::testSendAlternativeBody" to pass.
+ok 2 - # SKIP This test depends on "ninjacto\yii2mailgun\tests\MessageTest::testGetMailgunMessage" to pass.
+1..2

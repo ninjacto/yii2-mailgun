@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /Users/Server/yii2-mailgun/src</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/nv.d3.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="row">
+     <div class="col-md-12">
+      <ol class="breadcrumb">
+        <li><a href="index.html">/Users/Server/yii2-mailgun/src</a></li>
+        <li class="active">(Dashboard)</li>
+
+      </ol>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Mailer.php.html#28">Mailer</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#32">Message</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SkeletonClass.php.html#5">SkeletonClass</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Message.php.html#32">Message</a></td><td class="text-right">1406</td></tr>
+       <tr><td><a href="Mailer.php.html#28">Mailer</a></td><td class="text-right">20</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Mailer.php.html#55"><abbr title="Mailer::getMailgunMailer">getMailgunMailer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#302"><abbr title="Message::getSubject">getSubject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#234"><abbr title="Message::setHeaders">setHeaders</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#247"><abbr title="Message::getFrom">getFrom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#258"><abbr title="Message::getTo">getTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#269"><abbr title="Message::getReplyTo">getReplyTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#280"><abbr title="Message::getCc">getCc</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#291"><abbr title="Message::getBcc">getBcc</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#319"><abbr title="Message::attachContent">attachContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#208"><abbr title="Message::createMailgunMessage">createMailgunMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#345"><abbr title="Message::embed">embed</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#365"><abbr title="Message::embedContent">embedContent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#383"><abbr title="Message::toString">toString</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#392"><abbr title="Message::getCharset">getCharset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#404"><abbr title="Message::setCharset">setCharset</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SkeletonClass.php.html#10"><abbr title="SkeletonClass::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#221"><abbr title="Message::addHeader">addHeader</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#198"><abbr title="Message::clickTracking">clickTracking</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mailer.php.html#68"><abbr title="Mailer::sendMessage">sendMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#94"><abbr title="Message::setBcc">setBcc</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Mailer.php.html#89"><abbr title="Mailer::createMailgunMailer">createMailgunMailer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#42"><abbr title="Message::getMailgunMessage">getMailgunMessage</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#54"><abbr title="Message::setFrom">setFrom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#64"><abbr title="Message::setReplyTo">setReplyTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#74"><abbr title="Message::setTo">setTo</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#84"><abbr title="Message::setCc">setCc</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#104"><abbr title="Message::setSubject">setSubject</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#187"><abbr title="Message::parameter">parameter</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#114"><abbr title="Message::setTextBody">setTextBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#124"><abbr title="Message::setHtmlBody">setHtmlBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#138"><abbr title="Message::setBody">setBody</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#153"><abbr title="Message::attach">attach</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#167"><abbr title="Message::campaign">campaign</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Message.php.html#177"><abbr title="Message::tag">tag</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="SkeletonClass.php.html#22"><abbr title="SkeletonClass::echoPhrase">echoPhrase</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Mailer.php.html#55"><abbr title="Mailer::getMailgunMailer">getMailgunMailer</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Message.php.html#42"><abbr title="Message::getMailgunMessage">getMailgunMessage</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Message.php.html#138"><abbr title="Message::setBody">setBody</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Message.php.html#153"><abbr title="Message::attach">attach</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Message.php.html#234"><abbr title="Message::setHeaders">setHeaders</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Message.php.html#319"><abbr title="Message::attachContent">attachContent</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Message.php.html#345"><abbr title="Message::embed">embed</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Message.php.html#365"><abbr title="Message::embedContent">embedContent</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 4.0.3</a> using <a href="https://secure.php.net/" target="_top">PHP 7.1.0</a> with <a href="https://xdebug.org/">Xdebug 2.5.0</a> and <a href="https://phpunit.de/">PHPUnit 5.7.2</a> at Thu Dec 8 7:55:37 UTC 2016.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/holder.min.js" type="text/javascript"></script>
+  <script src="js/d3.min.js" type="text/javascript"></script>
+  <script src="js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([3,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([35,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,4,"<a href=\"Mailer.php.html#28\">Mailer<\/a>"],[0,37,"<a href=\"Message.php.html#32\">Message<\/a>"],[0,2,"<a href=\"SkeletonClass.php.html#5\">SkeletonClass<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,2,"<a href=\"Mailer.php.html#55\">Mailer::getMailgunMailer<\/a>"],[0,1,"<a href=\"Mailer.php.html#68\">Mailer::sendMessage<\/a>"],[0,1,"<a href=\"Mailer.php.html#89\">Mailer::createMailgunMailer<\/a>"],[0,2,"<a href=\"Message.php.html#42\">Message::getMailgunMessage<\/a>"],[0,1,"<a href=\"Message.php.html#54\">Message::setFrom<\/a>"],[0,1,"<a href=\"Message.php.html#64\">Message::setReplyTo<\/a>"],[0,1,"<a href=\"Message.php.html#74\">Message::setTo<\/a>"],[0,1,"<a href=\"Message.php.html#84\">Message::setCc<\/a>"],[0,1,"<a href=\"Message.php.html#94\">Message::setBcc<\/a>"],[0,1,"<a href=\"Message.php.html#104\">Message::setSubject<\/a>"],[0,1,"<a href=\"Message.php.html#114\">Message::setTextBody<\/a>"],[0,1,"<a href=\"Message.php.html#124\">Message::setHtmlBody<\/a>"],[0,2,"<a href=\"Message.php.html#138\">Message::setBody<\/a>"],[0,2,"<a href=\"Message.php.html#153\">Message::attach<\/a>"],[0,1,"<a href=\"Message.php.html#167\">Message::campaign<\/a>"],[0,1,"<a href=\"Message.php.html#177\">Message::tag<\/a>"],[0,1,"<a href=\"Message.php.html#187\">Message::parameter<\/a>"],[0,1,"<a href=\"Message.php.html#198\">Message::clickTracking<\/a>"],[0,1,"<a href=\"Message.php.html#208\">Message::createMailgunMessage<\/a>"],[0,1,"<a href=\"Message.php.html#221\">Message::addHeader<\/a>"],[0,2,"<a href=\"Message.php.html#234\">Message::setHeaders<\/a>"],[0,1,"<a href=\"Message.php.html#247\">Message::getFrom<\/a>"],[0,1,"<a href=\"Message.php.html#258\">Message::getTo<\/a>"],[0,1,"<a href=\"Message.php.html#269\">Message::getReplyTo<\/a>"],[0,1,"<a href=\"Message.php.html#280\">Message::getCc<\/a>"],[0,1,"<a href=\"Message.php.html#291\">Message::getBcc<\/a>"],[0,1,"<a href=\"Message.php.html#302\">Message::getSubject<\/a>"],[0,2,"<a href=\"Message.php.html#319\">Message::attachContent<\/a>"],[0,2,"<a href=\"Message.php.html#345\">Message::embed<\/a>"],[0,2,"<a href=\"Message.php.html#365\">Message::embedContent<\/a>"],[0,1,"<a href=\"Message.php.html#383\">Message::toString<\/a>"],[0,1,"<a href=\"Message.php.html#392\">Message::getCharset<\/a>"],[0,1,"<a href=\"Message.php.html#404\">Message::setCharset<\/a>"],[0,1,"<a href=\"SkeletonClass.php.html#10\">SkeletonClass::__construct<\/a>"],[0,1,"<a href=\"SkeletonClass.php.html#22\">SkeletonClass::echoPhrase<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
