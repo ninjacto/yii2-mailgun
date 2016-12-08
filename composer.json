@@ -36,11 +36,6 @@
             "ninjacto\\yii2-mailgun\\": "src"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "ninjacto\\yii2-mailgun\\": "tests"
-        }
-    },
     "minimum-stability": "stable",
     "scripts": {
         "test": "phpunit",
