@@ -6,11 +6,7 @@
  */
 namespace ninjacto\yii2mailgun;
 
-use Mailgun\Mailgun;
 use Mailgun\Messages\MessageBuilder;
-use Yii;
-use yii\base\InvalidConfigException;
-use yii\helpers\ArrayHelper;
 use yii\mail\BaseMessage;
 use yii\mail\MessageInterface;
 
@@ -28,14 +24,12 @@ use yii\mail\MessageInterface;
  * @property string $readReceiptTo Receipt receive email addresses. Note that the type of this property
  * differs in getter and setter. See [[getReadReceiptTo()]] and [[setReadReceiptTo()]] for details.
  * @property string $returnPath The bounce email address.
- * @property array|callable|\Swift_Signer $signature Signature specification. See [[addSignature()]] for
- * details on how it should be specified. This property is write-only.
  * @property \Mailgun\Messages\MessageBuilder $mailgunMessage Swift message instance. This property is read-only.
  *
  * @author Paul Klimov <klimov.paul@gmail.com>
  * @since 2.0
  */
-class Message extends BaseMessage
+class Message extends BaseMessage implements MessageInterface
 {
     /**
      * @var MessageBuilder Mailgun message instance.
@@ -203,7 +197,8 @@ class Message extends BaseMessage
      */
     public function clickTracking($enable)
     {
-        return $this->getMailgunMessage()->setClickTracking($enable);
+        $this->getMailgunMessage()->setClickTracking($enable);
+        return $this;
     }
 
     /**
@@ -215,7 +210,6 @@ class Message extends BaseMessage
         return new MessageBuilder();
     }
 
-    // Headers setup :
     /**
      * Adds custom header value to the message.
      * Several invocations of this method with the same name will add multiple header values.
@@ -244,25 +238,6 @@ class Message extends BaseMessage
         }
 
         return $this;
-    }
-
-    /**
-     * Returns the character set of this message.
-     * @return string the character set of this message.
-     */
-    public function getCharset()
-    {
-        // TODO: Implement getCharset() method.
-    }
-
-    /**
-     * Sets the character set of this message.
-     * @param string $charset character set name.
-     * @return $this self reference.
-     */
-    public function setCharset($charset)
-    {
-        // TODO: Implement setCharset() method.
     }
 
     /**
@@ -343,7 +318,17 @@ class Message extends BaseMessage
      */
     public function attachContent($content, array $options = [])
     {
-        // TODO: Implement attachContent() method.
+        if (!empty($options['fileName'])) {
+            $fileName = '/tmp/'.$options['fileName'];
+            file_put_contents($fileName,$content);
+            $this->getMailgunMessage()->addAttachment($fileName, $options['fileName']);
+        } else {
+            $fileName = '/tmp/'.uniqid('email_attachment_');
+            file_put_contents('/tmp/'.uniqid('email_attachment_'),$content);
+            $this->getMailgunMessage()->addAttachment($fileName);
+        }
+
+        return $this;
     }
 
     /**
@@ -359,7 +344,11 @@ class Message extends BaseMessage
      */
     public function embed($fileName, array $options = [])
     {
-        // TODO: Implement embed() method.
+        if (!empty($options['fileName'])) {
+            $this->getMailgunMessage()->addInlineImage($fileName, $options['fileName']);
+        } else {
+            $this->getMailgunMessage()->addInlineImage($fileName);
+        }
     }
 
     /**
@@ -374,8 +363,17 @@ class Message extends BaseMessage
      * @return string attachment CID.
      */
     public function embedContent($content, array $options = [])
-    {
-        // TODO: Implement embedContent() method.
+    {if (!empty($options['fileName'])) {
+        $fileName = '/tmp/'.$options['fileName'];
+        file_put_contents($fileName,$content);
+        $this->getMailgunMessage()->addInlineImage($fileName, $options['fileName']);
+    } else {
+        $fileName = '/tmp/'.uniqid('email_attachment_');
+        file_put_contents('/tmp/'.uniqid('email_attachment_'),$content);
+        $this->getMailgunMessage()->addInlineImage($fileName);
+    }
+
+        return $this;
     }
 
     /**
@@ -384,6 +382,29 @@ class Message extends BaseMessage
      */
     public function toString()
     {
-        // TODO: Implement toString() method.
+        return implode("\r\n", $this->getMailgunMessage()->getMessage());
+    }
+
+    /**
+     * Returns the character set of this message.
+     * @return string the character set of this message.
+     */
+    public function getCharset()
+    {
+        $message = $this->getMailgunMessage()->getMessage();
+
+        return $message['Content-Type'];
+    }
+
+    /**
+     * Sets the character set of this message.
+     * @param string $charset character set name.
+     * @return $this self reference.
+     */
+    public function setCharset($charset)
+    {
+        $message = $this->getMailgunMessage()->getMessage();
+        $message['Content-Type'] = 'text/html; charset=utf-8';
+        $this->getMailgunMessage()->setMessage($message);
     }
 }

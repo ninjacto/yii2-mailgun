@@ -62,26 +62,23 @@ class Mailer extends BaseMailer
     }
 
     /**
+     * @param Message $message
      * @inheritdoc
      */
-    protected function sendMessage(\ninjacto\yii2mailgun\Message $message)
+    protected function sendMessage($message)
     {
-        $mailer = $this->getMailgunMailer();
-
-
-        $message->setClickTracking($this->clicksTrackingMode)
-            ->addTags($this->tags);
+        $message->clickTracking($this->clicksTrackingMode)->tag($this->tags);
 
         Yii::info('Sending email', __METHOD__);
 
-        $response = $mailer->sendMessage($this->domain, array(
-            'from'    => 'Excited User <mailgun@YOUR_DOMAIN_NAME>',
-            'to'      => 'Baz <YOU@YOUR_DOMAIN_NAME>',
-            'subject' => 'Hello',
-            'text'    => 'Testing some Mailgun awesomness!'
-        ));
+        $response = $this->getMailgunMailer()->post(
+            "{$this->domain}/messages",
+            $message->getMailgunMessage()->getMessage(),
+            $message->getMailgunMessage()->getFiles()
+        );
 
         Yii::info('Response : ' . print_r($response, true), __METHOD__);
+
         return true;
     }
 
@@ -91,10 +88,8 @@ class Mailer extends BaseMailer
      */
     protected function createMailgunMailer()
     {
-        # Instantiate the client.
         $mgClient = new Mailgun($this->key);
 
         return $mgClient;
-
     }
 }
